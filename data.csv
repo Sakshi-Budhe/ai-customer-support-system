@@ -1,0 +1,9 @@
+text,category,priority
+"My payment failed but money is deducted",Billing,High
+"App is crashing when I open it",Technical,High
+"How do I reset my password",Account,Low
+"Login is not working",Technical,High
+"Need invoice for last purchase",Billing,Medium
+"Refund not received yet",Billing,High
+"App is very slow",Technical,Medium
+"How to change email address",Account,Low
