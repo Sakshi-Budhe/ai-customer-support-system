@@ -1,12 +1,16 @@
-def generate_reply(ticket_text):
-    if "payment" in ticket_text.lower():
-        return "We are sorry for the payment issue. Our team is checking it."
+def generate_reply(category):
 
-    elif "login" in ticket_text.lower():
-        return "Please reset your password using forgot password option."
+    if category == "Greeting":
+        return "Hi How can I help you today?"
 
-    elif "app" in ticket_text.lower():
-        return "We are working on fixing the app issue."
+    elif category == "Billing":
+        return "We are checking your billing issue. Please wait for an update."
+
+    elif category == "Technical":
+        return "Our technical team is working on this issue."
+
+    elif category == "Account":
+        return "Please check your account settings or reset password."
 
     else:
-        return "We have received your issue and will resolve it soon."
+        return "Please describe your issue in detail so we can help you better."

@@ -1,16 +1,15 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.pipeline import Pipeline
 
-# Load data
+# Load dataset
 df = pd.read_csv("data.csv")
 
 X = df["text"]
 y = df["category"]
 
-# Create model pipeline
+# Model pipeline
 model = Pipeline([
     ("tfidf", TfidfVectorizer()),
     ("clf", MultinomialNB())
@@ -19,7 +18,11 @@ model = Pipeline([
 # Train model
 model.fit(X, y)
 
-# Function to use model (IMPORTANT for Streamlit)
-def predict_category(text):
-    return model.predict([text])[0]
 
+# Predict function (WITH confidence)
+def predict_category(text):
+    probs = model.predict_proba([text])[0]
+    prediction = model.predict([text])[0]
+    confidence = max(probs)
+
+    return prediction, confidence
